@@ -14,7 +14,7 @@ class LeadController extends Controller
      */
     public function index()
     {
-        //
+        return view('lead.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class LeadController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
