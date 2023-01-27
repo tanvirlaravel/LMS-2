@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lead;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+// use Illuminate\Support\Facades\Auth;
 
 class LeadController extends Controller
 {
@@ -15,14 +15,8 @@ class LeadController extends Controller
      */
     public function index()
     {
-        $user=Auth::user();
-        $check = $user->hasPermissionTo('lead-management');
 
-        if(!$check){
-            flash()->addWarning('You are not authorized to access this page');
-
-            return redirect()->route('dashboard');
-        }
+        permission_check('lead-management');
 
         return view('lead.index');
     }
@@ -65,9 +59,11 @@ class LeadController extends Controller
      * @param  \App\Models\Lead  $lead
      * @return \Illuminate\Http\Response
      */
-    public function edit(Lead $lead)
+    public function edit($id)
     {
-        //
+        return view('Lead.edit', [
+            'lead_id' => $id
+        ]);
     }
 
     /**
