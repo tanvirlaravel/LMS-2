@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $defaultPermission = ['lead-management', 'create-admin'];
+        $defaultPermission = ['lead-management', 'create-admin', 'user-management'];
         foreach ($defaultPermission as $permission) {
             Permission::create(['name' => $permission]);
         }
@@ -41,7 +41,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'Laravel',
             'description' => 'Laravel is an open-source PHP framework, which is robust and easy to understand. It follows a model-view-controller design pattern.',
             'image' => 'https://user-images.githubusercontent.com/1915268/67271462-31600380-f4d8-11e9-9143-18e197b26f48.png',
-            'user_id' => $teacher->id
+            'user_id' => $teacher->id,
+            'price' => 555,
 
         ]);
 
